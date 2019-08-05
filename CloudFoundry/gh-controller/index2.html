@@ -1,0 +1,83 @@
+<html>
+<title>Live Video from AXIS Camera</title>
+<body>
+<center>
+<h2>Live Video from AXIS Camera</h2>
+
+<SCRIPT LANGUAGE="JavaScript">
+// Set the BaseURL to the URL of your camera
+//Example: var BaseURL = "http://172.21.1.122/";
+
+var BaseURL = "http://172.24.4.71/";
+
+// The two following lines need to be changed if an an AXIS 241S(A)/241Q(A)/240Q/243SA is used:
+
+var Camera = "1"; // If you use an AXIS 240Q/241S(A)/241Q(A)/243SA, comment away this line by inserting "//"
+// var Camera = "n"; // Change n to the Video source used in the AXIS 240Q/ 241S(A)/241Q(A)/243SA and remove "//"
+
+// Go to the camera used and remove the "//" in front of the ImageResolution to be used.
+// Note that only one can be enabled at a time.
+
+// List of additional available resolutions is shown in the product's configuration.
+
+// AXIS 207/210/210A/211/211A/212 PTZ/216FD/221/225FD
+ var ImageResolution = "320x240";var DisplayWidth = "320";var DisplayHeight = "240";
+// var ImageResolution = "640x480";var DisplayWidth = "640";var DisplayHeight = "480";
+
+// AXIS 213 PTZ/214 PTZ/231D(+)/232D(+)/240Q/241S(A)/241Q(A)/243SA PAL
+// var ImageResolution = "352x288";var DisplayWidth = "352";var DisplayHeight = "288";
+// var ImageResolution = "704x576";var DisplayWidth = "704";var DisplayHeight = "576";
+
+// AXIS 213 PTZ/214 PTZ/231D(+)/232D(+)/240Q/241S(A)/241Q(A)/243SA NTSC
+// var ImageResolution = "352x240";var DisplayWidth = "352";var DisplayHeight = "240";
+// var ImageResolution = "704x480";var DisplayWidth = "704";var DisplayHeight = "480";
+
+// This is the path to the image generating file inside the camera itself
+var File = "axis-cgi/mjpg/video.cgi?resolution="+ImageResolution;
+// No changes required below this point
+if (Camera != "") {File += "&camera=" + Camera;}
+var output = "";
+if ((navigator.appName == "Microsoft Internet Explorer") &&
+(navigator.platform != "MacPPC") && (navigator.platform != "Mac68k"))
+{
+// If Internet Explorer under Windows then use ActiveX
+output = '<OBJECT ID="Player" width='
+output += DisplayWidth;
+output += ' height=';
+output += DisplayHeight;
+output += ' CLASSID="CLSID:DE625294-70E6-45ED-B895-CFFA13AEB044" ';
+output += 'CODEBASE="';
+output += BaseURL;
+output += 'activex/AMC.cab">';
+output += '<PARAM NAME="MediaURL" VALUE="';
+output += BaseURL;
+output += File + '">';
+output += '<param name="MediaType" value="mjpeg-unicast">';
+output += '<param name="ShowStatusBar" value="0">';
+output += '<param name="ShowToolbar" value="0">';
+output += '<param name="AutoStart" value="1">';
+output += '<param name="StretchToFit" value="1">';
+output += '<BR><B>Axis Media Control</B><BR>';
+output += 'The AXIS Media Control, which enables you ';
+output += 'to view live image streams in Microsoft Internet';
+output += ' Explorer, could not be registered on your computer.';
+output += '<BR></OBJECT>';
+} else {
+// If not IE for Windows use the browser itself to display
+theDate = new Date();
+output = '<IMG SRC="';
+output += BaseURL;
+output += File;
+output += '&dummy=' + theDate.getTime().toString(10);
+output += '" HEIGHT="';
+output += DisplayHeight;
+output += '" WIDTH="';
+output += DisplayWidth;
+output += '" ALT="Camera Image">';
+}
+document.write(output);
+document.Player.ToolbarConfiguration = "play,+snapshot,+fullscreen";
+
+</SCRIPT>
+</body>
+</html>

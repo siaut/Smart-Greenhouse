@@ -1,0 +1,52 @@
+<html>
+<head>
+    <!--<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/sijax/sijax.js"></script>
+    <script type="text/javascript" src="/static/js/sijax/sijax_comet.js"></script>
+    <script type="text/javascript">
+        {{ g.sijax.get_js()|safe }}
+    </script>
+</head>
+
+<body>
+    <div id="progressWrapper1" style="height: 22px; width: 400px; border: 1px solid #e0e0e0; margin-bottom: 10px;">
+        <div id="timevalue" style="height: 100%;">
+            &nbsp;
+        </div>
+    </div>
+	    <div id="progressWrapper2" style="height: 22px; width: 400px; border: 1px solid #e0e0e0; margin-bottom: 10px;">
+        <div id="lightvalue" style=" height: 100%;">
+            &nbsp;
+        </div>
+    </div>
+	    <div id="progressWrapper3" style="height: 22px; width: 400px; border: 1px solid #e0e0e0; margin-bottom: 10px;"><div id="tempvalue" style="height: 100%;">
+            &nbsp;
+        </div>
+    </div>
+	    <div id="progressWrapper4" style="height: 22px; width: 400px; border: 1px solid #e0e0e0; margin-bottom: 10px;">
+        <div id="moisvalue" style="height: 100%;">
+            &nbsp;
+        </div>
+    </div>
+    
+    
+    <script>
+var refreshId = setInterval(function()
+{
+     sjxComet.request('do_work');
+}, 5000);
+</script>
+
+    <script type="text/javascript">
+    $('#btnStart').bind('click', function () {
+        $('#progress').css('width', 0).html('&nbsp;');
+
+        //sleep time is 500ms
+        sjxComet.request('do_work', [5]);
+    });
+    </script>
+</body>
+</html>
+

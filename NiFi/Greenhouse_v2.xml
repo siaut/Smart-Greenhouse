@@ -1,0 +1,914 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.1">
+  <description></description>
+  <groupId>400909c5-0166-1000-0000-0000345b0fd7</groupId>
+  <name>Greenhouse v2</name>
+  <snippet>
+    <connections>
+      <id>b0e5c289-4185-3db5-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>f5e6cc36-ad70-34f3-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>981b465d-3068-3f31-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>d1663268-8a27-365e-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>f848a0f6-b88c-390e-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>failure</selectedRelationships>
+      <selectedRelationships>unsupported content</selectedRelationships>
+      <source>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>981b465d-3068-3f31-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>1217b382-d708-3258-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>2e057537-f3f2-34a5-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>f5e6cc36-ad70-34f3-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>146f1a04-e068-3031-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>f848a0f6-b88c-390e-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>failure</selectedRelationships>
+      <selectedRelationships>incompatible</selectedRelationships>
+      <source>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>f5e6cc36-ad70-34f3-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>54c4b2b1-26a1-36f0-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>f848a0f6-b88c-390e-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>failure</selectedRelationships>
+      <source>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>2e057537-f3f2-34a5-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>68e18d63-1d16-37aa-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>981b465d-3068-3f31-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>Message</selectedRelationships>
+      <source>
+        <groupId>1c3e9cfe-a6ca-37b1-0000-000000000000</groupId>
+        <id>65cf44c0-7247-3e05-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <processors>
+      <id>981b465d-3068-3f31-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <position>
+        <x>741.5092468261719</x>
+        <y>0.0</y>
+      </position>
+      <bundle>
+        <artifact>nifi-kite-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0.3.0.1.1-5</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Schema Output Destination</key>
+            <value>
+              <name>Schema Output Destination</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Input Content Type</key>
+            <value>
+              <name>Input Content Type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV Header Definition</key>
+            <value>
+              <name>CSV Header Definition</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Get CSV Header Definition From Data</key>
+            <value>
+              <name>Get CSV Header Definition From Data</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV Header Line Skip Count</key>
+            <value>
+              <name>CSV Header Line Skip Count</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV delimiter</key>
+            <value>
+              <name>CSV delimiter</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV Escape String</key>
+            <value>
+              <name>CSV Escape String</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV Quote String</key>
+            <value>
+              <name>CSV Quote String</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Pretty Avro Output</key>
+            <value>
+              <name>Pretty Avro Output</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Avro Record Name</key>
+            <value>
+              <name>Avro Record Name</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Number Of Records To Analyze</key>
+            <value>
+              <name>Number Of Records To Analyze</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Charset</key>
+            <value>
+              <name>Charset</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Schema Output Destination</key>
+            <value>flowfile-attribute</value>
+          </entry>
+          <entry>
+            <key>Input Content Type</key>
+            <value>csv</value>
+          </entry>
+          <entry>
+            <key>CSV Header Definition</key>
+            <value>currenttime,light,moisture,temperature,distance</value>
+          </entry>
+          <entry>
+            <key>Get CSV Header Definition From Data</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>CSV Header Line Skip Count</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>CSV delimiter</key>
+            <value>,</value>
+          </entry>
+          <entry>
+            <key>CSV Escape String</key>
+            <value>\</value>
+          </entry>
+          <entry>
+            <key>CSV Quote String</key>
+            <value>"</value>
+          </entry>
+          <entry>
+            <key>Pretty Avro Output</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Avro Record Name</key>
+            <value>greenhouse2</value>
+          </entry>
+          <entry>
+            <key>Number Of Records To Analyze</key>
+            <value>10</value>
+          </entry>
+          <entry>
+            <key>Charset</key>
+            <value>UTF-8</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>InferAvroSchema</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>original</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>unsupported content</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.kite.InferAvroSchema</type>
+    </processors>
+    <processors>
+      <id>f5e6cc36-ad70-34f3-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <position>
+        <x>774.6018981933594</x>
+        <y>229.15269017219543</y>
+      </position>
+      <bundle>
+        <artifact>nifi-kite-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0.3.0.1.1-5</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Hadoop configuration files</key>
+            <value>
+              <name>Hadoop configuration files</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Record schema</key>
+            <value>
+              <name>Record schema</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV charset</key>
+            <value>
+              <name>CSV charset</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV delimiter</key>
+            <value>
+              <name>CSV delimiter</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV quote character</key>
+            <value>
+              <name>CSV quote character</name>
+            </value>
+          </entry>
+          <entry>
+            <key>CSV escape character</key>
+            <value>
+              <name>CSV escape character</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Use CSV header line</key>
+            <value>
+              <name>Use CSV header line</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Lines to skip</key>
+            <value>
+              <name>Lines to skip</name>
+            </value>
+          </entry>
+          <entry>
+            <key>kite-compression-type</key>
+            <value>
+              <name>kite-compression-type</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Hadoop configuration files</key>
+          </entry>
+          <entry>
+            <key>Record schema</key>
+            <value>${inferred.avro.schema}</value>
+          </entry>
+          <entry>
+            <key>CSV charset</key>
+            <value>utf8</value>
+          </entry>
+          <entry>
+            <key>CSV delimiter</key>
+            <value>,</value>
+          </entry>
+          <entry>
+            <key>CSV quote character</key>
+            <value>"</value>
+          </entry>
+          <entry>
+            <key>CSV escape character</key>
+            <value>\</value>
+          </entry>
+          <entry>
+            <key>Use CSV header line</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Lines to skip</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>kite-compression-type</key>
+            <value>SNAPPY</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>ConvertCSVToAvro</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>incompatible</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.kite.ConvertCSVToAvro</type>
+    </processors>
+    <processors>
+      <id>f848a0f6-b88c-390e-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <position>
+        <x>24.0</x>
+        <y>267.60154271125793</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0.3.0.1.1-5</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Directory</key>
+            <value>
+              <name>Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>
+              <name>Conflict Resolution Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Create Missing Directories</key>
+            <value>
+              <name>Create Missing Directories</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Maximum File Count</key>
+            <value>
+              <name>Maximum File Count</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Modified Time</key>
+            <value>
+              <name>Last Modified Time</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Permissions</key>
+            <value>
+              <name>Permissions</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Owner</key>
+            <value>
+              <name>Owner</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Group</key>
+            <value>
+              <name>Group</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Directory</key>
+            <value>/user/nifi/csv-error</value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>fail</value>
+          </entry>
+          <entry>
+            <key>Create Missing Directories</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Maximum File Count</key>
+          </entry>
+          <entry>
+            <key>Last Modified Time</key>
+          </entry>
+          <entry>
+            <key>Permissions</key>
+          </entry>
+          <entry>
+            <key>Owner</key>
+          </entry>
+          <entry>
+            <key>Group</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutFile</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.PutFile</type>
+    </processors>
+    <processors>
+      <id>2e057537-f3f2-34a5-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <position>
+        <x>700.8360290527344</x>
+        <y>524.4597580432892</y>
+      </position>
+      <bundle>
+        <artifact>nifi-hive-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0.3.0.1.1-5</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>hive-stream-metastore-uri</key>
+            <value>
+              <name>hive-stream-metastore-uri</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-config-resources</key>
+            <value>
+              <name>hive-config-resources</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-database-name</key>
+            <value>
+              <name>hive-stream-database-name</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-table-name</key>
+            <value>
+              <name>hive-stream-table-name</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-partition-cols</key>
+            <value>
+              <name>hive-stream-partition-cols</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-autocreate-partition</key>
+            <value>
+              <name>hive-stream-autocreate-partition</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-max-open-connections</key>
+            <value>
+              <name>hive-stream-max-open-connections</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-heartbeat-interval</key>
+            <value>
+              <name>hive-stream-heartbeat-interval</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-transactions-per-batch</key>
+            <value>
+              <name>hive-stream-transactions-per-batch</name>
+            </value>
+          </entry>
+          <entry>
+            <key>hive-stream-records-per-transaction</key>
+            <value>
+              <name>hive-stream-records-per-transaction</name>
+            </value>
+          </entry>
+          <entry>
+            <key>rollback-on-failure</key>
+            <value>
+              <name>rollback-on-failure</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Principal</key>
+            <value>
+              <name>Kerberos Principal</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Keytab</key>
+            <value>
+              <name>Kerberos Keytab</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>hive-stream-metastore-uri</key>
+            <value>thrift://pnode1.pgen6.local:9083</value>
+          </entry>
+          <entry>
+            <key>hive-config-resources</key>
+            <value>/etc/spark/2.6.2.0-205/0/hive-site.xml</value>
+          </entry>
+          <entry>
+            <key>hive-stream-database-name</key>
+            <value>smartgreenhouse</value>
+          </entry>
+          <entry>
+            <key>hive-stream-table-name</key>
+            <value>greenhouse2</value>
+          </entry>
+          <entry>
+            <key>hive-stream-partition-cols</key>
+          </entry>
+          <entry>
+            <key>hive-stream-autocreate-partition</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>hive-stream-max-open-connections</key>
+            <value>8</value>
+          </entry>
+          <entry>
+            <key>hive-stream-heartbeat-interval</key>
+            <value>60</value>
+          </entry>
+          <entry>
+            <key>hive-stream-transactions-per-batch</key>
+            <value>100</value>
+          </entry>
+          <entry>
+            <key>hive-stream-records-per-transaction</key>
+            <value>10000</value>
+          </entry>
+          <entry>
+            <key>rollback-on-failure</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Kerberos Principal</key>
+          </entry>
+          <entry>
+            <key>Kerberos Keytab</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutHiveStreaming</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>retry</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.hive.PutHiveStreaming</type>
+    </processors>
+    <processors>
+      <id>65cf44c0-7247-3e05-0000-000000000000</id>
+      <parentGroupId>1c3e9cfe-a6ca-37b1-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>2.7843334674835205</y>
+      </position>
+      <bundle>
+        <artifact>nifi-mqtt-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0.3.0.1.1-5</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Broker URI</key>
+            <value>
+              <name>Broker URI</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Client ID</key>
+            <value>
+              <name>Client ID</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Topic</key>
+            <value>
+              <name>Last Will Topic</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Message</key>
+            <value>
+              <name>Last Will Message</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Retain</key>
+            <value>
+              <name>Last Will Retain</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will QoS Level</key>
+            <value>
+              <name>Last Will QoS Level</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Session state</key>
+            <value>
+              <name>Session state</name>
+            </value>
+          </entry>
+          <entry>
+            <key>MQTT Specification Version</key>
+            <value>
+              <name>MQTT Specification Version</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout (seconds)</key>
+            <value>
+              <name>Connection Timeout (seconds)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Keep Alive Interval (seconds)</key>
+            <value>
+              <name>Keep Alive Interval (seconds)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Topic Filter</key>
+            <value>
+              <name>Topic Filter</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Quality of Service(QoS)</key>
+            <value>
+              <name>Quality of Service(QoS)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Max Queue Size</key>
+            <value>
+              <name>Max Queue Size</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Broker URI</key>
+            <value>tcp://10.36.67.147:1883</value>
+          </entry>
+          <entry>
+            <key>Client ID</key>
+            <value>hdpreadsensors1</value>
+          </entry>
+          <entry>
+            <key>Username</key>
+          </entry>
+          <entry>
+            <key>Password</key>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+          </entry>
+          <entry>
+            <key>Last Will Topic</key>
+          </entry>
+          <entry>
+            <key>Last Will Message</key>
+          </entry>
+          <entry>
+            <key>Last Will Retain</key>
+          </entry>
+          <entry>
+            <key>Last Will QoS Level</key>
+          </entry>
+          <entry>
+            <key>Session state</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>MQTT Specification Version</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Connection Timeout (seconds)</key>
+            <value>30</value>
+          </entry>
+          <entry>
+            <key>Keep Alive Interval (seconds)</key>
+            <value>60</value>
+          </entry>
+          <entry>
+            <key>Topic Filter</key>
+            <value>sensors</value>
+          </entry>
+          <entry>
+            <key>Quality of Service(QoS)</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Max Queue Size</key>
+            <value>1000</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>ConsumeMQTT</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>Message</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.mqtt.ConsumeMQTT</type>
+    </processors>
+  </snippet>
+  <timestamp>07/18/2019 02:12:08 SGT</timestamp>
+</template>

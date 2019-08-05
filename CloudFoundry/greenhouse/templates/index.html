@@ -1,0 +1,381 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Smart Greenhouse IOT Demo">
+    <meta name="author" content="Siau Tan Long">
+    
+    <title>Smart Greenhouse</title>
+
+    <!-- Bootstrap core CSS -->
+	
+  	<link href="/static/css/github.min.css" rel="stylesheet" >
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/font-awesome.min.css" rel="stylesheet">
+  
+	<link href="/static/css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="/static/doc/stylesheet.css" rel="stylesheet">
+	
+	<link href="/static/css/toggle-switch.css" rel="stylesheet">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>-->
+	<!--<script type="text/javascript" src="/static/js/jquery.min.js"></script>-->
+	<script type="text/javascript" src="/static/js/bootstrap2-toggle.min.js"></script>
+    <script type="text/javascript" src="/static/js/sijax/sijax.js"></script>
+    <script type="text/javascript" src="/static/js/sijax/sijax_comet.js"></script>
+    <script type="text/javascript">
+        {{ g.sijax.get_js()|safe }}
+    </script>
+	
+<style type "text/css">
+<!--
+.blinking{
+	animation:blinkingText 3s infinite;
+}
+@keyframes blinkingText{
+	0%{		color: #ff0000;	}
+	49%{	color: #ff0000;	}
+	50%{	color: #ff0000;	}
+	99%{	color: transparent;	}
+	100%{	color: transparent;	}
+}
+-->
+</style>
+	
+  </head>
+  <body>
+  
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Smart GreenHouse</a>
+        </div>
+       
+      </div>
+    </div>
+	
+	    <!-- Main jumbotron for a primary marketing message or call to action -->
+   <div class="page-header">
+      <div class="container-fluid">
+        <br/>
+        <h4>Dashboard</h4>
+      </div>
+    </div>
+ 
+  
+	  
+	<div class="row placeholders">
+		<div class="col-xs-6 col-sm-3 placeholder">
+		<h4>Location</h4>		
+		   <div id="map" style="height: 280px; width: 340px; border: 1px solid #e0e0e0; align: center; margin-left:10px; margin-bottom: 10px;">
+		  
+		  </div>
+    <script>
+	var map, infoWindow;
+	
+      function initMap() {
+        var greenhouse = {lat: 1.332945, lng: 103.959198};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: greenhouse
+        });
+		
+		infoWindow = new google.maps.InfoWindow;
+		
+        var marker = new google.maps.Marker({
+          position: greenhouse,
+		  icon: '/static/greenhouse.png',
+          map: map,
+		  title: 'Greenhouse'
+        });
+		
+		
+		// Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+	  
+	  var markeryou = new google.maps.Marker({
+          position: pos,
+		  
+          map: map,
+		  title: 'You are here'
+        });
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('You are here');
+      infoWindow.open(map);
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    //handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  //infoWindow.setPosition(pos);
+  //infoWindow.setContent(browserHasGeolocation ?
+  //                      'Error: The Geolocation service failed.' :
+  //                      'Error: Your browser doesn\'t support geolocation.');
+  //infoWindow.open(map);
+}
+    </script>
+    <script async defer
+    src="http://maps.googleapis.com/maps/api/js?key={{mapkey}}&callback=initMap">
+    </script>
+</div>
+
+
+	<div class="col-xs-6 col-sm-3 placeholder">
+	<h4>Live Webcam</h4>
+	<!--<div id="webcam" style="width: 320px; border: 1px solid #e0e0e0; margin-bottom: 10px;">-->
+	<div id="webcam" style="align: center" class="well well-sm">
+	
+<SCRIPT LANGUAGE="JavaScript">
+// Set the BaseURL to the URL of your camera
+//Example: var BaseURL = "http://172.21.1.122/";
+
+var BaseURL = "http://10.36.67.148/";
+
+// The two following lines need to be changed if an an AXIS 241S(A)/241Q(A)/240Q/243SA is used:
+
+var Camera = "1"; // If you use an AXIS 240Q/241S(A)/241Q(A)/243SA, comment away this line by inserting "//"
+// var Camera = "n"; // Change n to the Video source used in the AXIS 240Q/ 241S(A)/241Q(A)/243SA and remove "//"
+
+// Go to the camera used and remove the "//" in front of the ImageResolution to be used.
+// Note that only one can be enabled at a time.
+
+// List of additional available resolutions is shown in the product's configuration.
+
+// AXIS 207/210/210A/211/211A/212 PTZ/216FD/221/225FD
+// var ImageResolution = "320x240";var DisplayWidth = "320";var DisplayHeight = "240";
+// var ImageResolution = "640x480";var DisplayWidth = "640";var DisplayHeight = "480";
+
+// AXIS 213 PTZ/214 PTZ/231D(+)/232D(+)/240Q/241S(A)/241Q(A)/243SA PAL
+ var ImageResolution = "352x240";var DisplayWidth = "352";var DisplayHeight = "280";
+// var ImageResolution = "704x576";var DisplayWidth = "704";var DisplayHeight = "576";
+
+// AXIS 213 PTZ/214 PTZ/231D(+)/232D(+)/240Q/241S(A)/241Q(A)/243SA NTSC
+// var ImageResolution = "352x240";var DisplayWidth = "352";var DisplayHeight = "240";
+// var ImageResolution = "704x480";var DisplayWidth = "704";var DisplayHeight = "480";
+
+// This is the path to the image generating file inside the camera itself
+var File = "axis-cgi/mjpg/video.cgi?resolution="+ImageResolution;
+// No changes required below this point
+if (Camera != "") {File += "&camera=" + Camera;}
+var output = "";
+if ((navigator.appName == "Microsoft Internet Explorer") &&
+(navigator.platform != "MacPPC") && (navigator.platform != "Mac68k"))
+{
+// If Internet Explorer under Windows then use ActiveX
+output = '<OBJECT ID="Player" width='
+output += DisplayWidth;
+output += ' height=';
+output += DisplayHeight;
+output += ' CLASSID="CLSID:DE625294-70E6-45ED-B895-CFFA13AEB044" ';
+output += 'CODEBASE="';
+output += BaseURL;
+output += 'activex/AMC.cab">';
+output += '<PARAM NAME="MediaURL" VALUE="';
+output += BaseURL;
+output += File + '">';
+output += '<param name="MediaType" value="mjpeg-unicast">';
+output += '<param name="ShowStatusBar" value="0">';
+output += '<param name="ShowToolbar" value="0">';
+output += '<param name="AutoStart" value="1">';
+output += '<param name="StretchToFit" value="1">';
+output += '<BR><B>Axis Media Control</B><BR>';
+output += 'The AXIS Media Control, which enables you ';
+output += 'to view live image streams in Microsoft Internet';
+output += ' Explorer, could not be registered on your computer.';
+output += '<BR></OBJECT>';
+} else {
+// If not IE for Windows use the browser itself to display
+theDate = new Date();
+output = '<IMG SRC="';
+output += BaseURL;
+output += File;
+output += '&dummy=' + theDate.getTime().toString(10);
+output += '" HEIGHT="';
+output += DisplayHeight;
+output += '" WIDTH="';
+output += DisplayWidth;
+output += '" ALT="Camera Image">';
+}
+document.write(output);
+document.Player.ToolbarConfiguration = "play,+snapshot,+fullscreen";
+
+</SCRIPT>
+	</div>
+	</div>	
+
+
+
+
+
+
+
+
+
+<div class="col-xs-6 col-sm-3 placeholder" >
+<!--
+<div id="indoor" class="well well-sm">
+<h4>Indoor</h4>
+	<div id="statistics" style="height: 100px; border: 1px solid #0132b7; margin-bottom: 0px;">
+<label id="timevalue" class="text-muted">&nbsp;</label> <br>
+<label id="lightvalue" class="text-muted">&nbsp;</label><br>
+<label id="tempvalue" class="text-muted">&nbsp;</label><br>
+<label id="moisvalue" class="text-muted">&nbsp;</label><br>
+
+   </div>
+	 -->
+<div id="outdoor" class="well well-sm">
+<h4>Outdoor</h4> 
+<label id="timevalue" class="text-muted">&nbsp;</label><br>
+        <label id="weathervalue" class="text-muted" style="height: 90px;">
+            &nbsp;
+        </label>
+		
+    </div>
+		
+<div id="RemoteControlPanel" class="well well-sm">
+<h4>Control Panel</h4>
+<!-- Light switch -->
+<label class="checkbox-inline">
+  <input type="checkbox" data-toggle="toggle" data-size="small" id="chkLed"  >Light
+</label>
+<!-- Fan switch -->
+
+<label class="checkbox-inline">
+  <input type="checkbox" data-toggle="toggle" data-size="small" id="chkFan">Fan
+</label>
+
+<!-- Cloud switch -->
+
+<label class="checkbox-inline">
+  <input type="checkbox" data-toggle="toggle" data-size="small" id="chkCloud" disabled>Cloud
+</label>
+<div style="height: 5px"></div>
+<!-- Form -->
+<form method=post enctype=multipart/form-data action=http://10.36.67.147:5000/remote>
+<label class="checkbox-horizontal">
+<label class="btn btn-primary">
+                Browse&hellip; <input type="file" name="file" style="display: none;">
+</label>
+</label>	
+    
+<label class="checkbox-horizontal">
+         <input type=submit value="Camera 2" class="btn btn-primary  ">
+ </label>
+
+	</form>
+</div>
+
+		
+		
+	</div>
+
+<div class="col-xs-6 col-sm-3 placeholder">
+<h4>Alarm</h4>
+<div id="alertphotovalue" style="align: center" class="well well-sm">
+		<!--<div id="alertphotovalue" style="width: 360px; height: 300px; margin-top:10px; margin-left:0px; border: 2px solid #600000; overflow:hidden;">-->
+            &nbsp;
+        </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="row placeholders">
+
+      <!-- Example row of columns -->
+      <div class="col-xs-6 col-sm-3 placeholder">
+
+          <div class="container-fluid" id="data-container" style="height: 300px; margin: 0 auto"></div>
+
+        </div>
+		
+		<div class="col-xs-6 col-sm-3 placeholder">
+
+          <div class="container-fluid" id="data-container2" style="height: 300px; margin: 0 auto"></div>
+
+        </div>
+
+		<div class="col-xs-6 col-sm-3 placeholder">
+
+          <div class="container-fluid" id="data-container3" style="height: 300px; margin: 0 auto"></div>
+
+        </div>
+		
+		<div class="col-xs-6 col-sm-3 placeholder">
+		<div id="alertvalue" class="well well-sm">
+		<!--
+		<div id="alertvalue" style="width: 360px; height: 300px; margin-top:10px; margin-left:10px; border: 2px solid #600000; overflow:hidden;" class="blinking">-->
+            &nbsp;
+        </div>
+	</div>
+	
+    </div>
+
+	
+    <hr>
+
+<footer>
+        <p align="left">Siau TanLong, Dell EMC Customer Solution Center</p>
+</footer>
+	  
+	
+
+    <script type="text/javascript">
+    $('#chkLed').bind('change', function () {
+        sjxComet.request('do_switchLed');
+    });
+    </script>
+	<script type="text/javascript">
+    $('#chkFan').bind('change', function () {
+        sjxComet.request('do_switchFan');
+    });
+    </script>
+	<script type="text/javascript">
+    $('#chkCloud').bind('change', function () {
+        sjxComet.request('do_switchCloud');
+    });
+    </script>
+
+ <script>
+var refreshId = setInterval(function()
+{
+     sjxComet.request('do_work');
+	 
+}, 5000);
+</script>
+
+
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script src="/static/js/highcharts.js"></script>
+	
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
