@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+import paho.mqtt.client as mqtt
+import time
+import datetime
+import requests
+import AxisCamera
+import vision
+
+API_ENDPOINT = "http://gh-controller.apps.csc-dell.com/sensors"
+
+API_ENDPOINT_ALERT = "http://gh-controller.apps.csc-dell.com/alerts"
+
+#requests.packages.urllib3.disable_warnings()
+
+def on_message(client, userdata, message):
+    m = str(message.payload.decode("utf-8"))
+    list = m.split(",")
+    print("Distance: " + str(list[4]))
+    if float(list[4]) < 0.5:
+        print "***Intruder Alert***"
+        API_EndPointSpeak = "http://172.16.254.60:5000/speak?switch=on"
+        result = requests.post(API_EndPointSpeak)
+        print( "result:" + str(result))
+	
+        AxisCamera.takesnapshot()
+        filename=AxisCamera.uploadToECS()
+       # AxisCamera.uploadToAWS(filename)
+#        vresp = vision.MSvision()
+        vresp = ''
+        print vresp
+        PARAMS_ALERT = {'sensors':m,'filename':filename,'alerts':vresp} 
+        r2 = requests.post(url = API_ENDPOINT_ALERT, params = PARAMS_ALERT, verify=False)
+		
+
+    print("Sensors: " + m)    
+    PARAMS = {'sensors':m}   
+	
+    r = requests.post(url = API_ENDPOINT, params = PARAMS, verify=False)
+    #requests.api.request('post', API_ENDPOINT, data=PARAMS, json=None, verify=False)
+    pastebin_url = r.text
+    #print pastebin_url
+
+#broker_address="172.24.5.158"
+#broker_address="172.24.7.21"
+broker_address="172.16.254.61"
+print("creating new instance")
+client = mqtt.Client("readsensor") #create new instance
+client.on_message=on_message #attach function to callback
+print("connecting to broker")
+client.connect(broker_address,port=1883) #connect to broker
+
+client.loop_start() #start the loop
+
+while True:
+    client.subscribe("sensors")
+    time.sleep(1) # wait
+
+client.loop_stop() #stop the loop
+
+

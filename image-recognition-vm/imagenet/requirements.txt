@@ -1,0 +1,6 @@
+Flask
+backports.weakref==1.0rc1
+tensorflow
+pandas
+configobj
+email

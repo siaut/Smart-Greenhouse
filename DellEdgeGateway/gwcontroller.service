@@ -1,0 +1,8 @@
+[Unit]
+Description=Greenhouse Gateway Controller
+
+[Service]
+ExecStart=/opt/greenhouse/gwcontroller.py
+
+[Install]
+WantedBy=multi-user.target

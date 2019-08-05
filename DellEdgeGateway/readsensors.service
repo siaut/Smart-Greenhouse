@@ -1,0 +1,8 @@
+[Unit]
+Description=Greenhouse Readsensors
+
+[Service]
+ExecStart=/opt/greenhouse/readsensors.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,29 @@
+FROM "ubuntu"
+MAINTAINER TanLong "tanlong.siau@dell.com"
+RUN apt-get -y update 
+RUN apt-get install -y git python-pip python-dev build-essential
+#RUN easy_install -U pip
+RUN pip install tensorflow
+RUN apt-get install -y protobuf-compiler python-pil python-lxml
+
+RUN mkdir -p /opt/models/tutorials/image/imagenet
+
+WORKDIR /opt/models/tutorials/image/imagenet
+ADD requirements.txt /opt/models/tutorials/image/imagenet/
+RUN pip install -r requirements.txt
+ADD models/research/ /opt/models/research/
+ADD *.* /opt/models/tutorials/image/imagenet/
+RUN apt-get install -y protobuf-compiler python-pil python-lxml
+#RUN git clone https://github.com/tensorflow/models.git /opt/models
+
+WORKDIR /opt/models/research
+RUN protoc object_detection/protos/*.proto --python_out=.
+RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+
+RUN mkdir -p /tmp/imagenet
+ADD inception-2015-12-05.tgz /tmp/imagenet/
+
+EXPOSE 5000
+
+WORKDIR /opt/models/tutorials/image/imagenet
+CMD [ "python", "./tensorflow-server.py" ]
