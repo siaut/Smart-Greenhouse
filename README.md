@@ -37,7 +37,9 @@ https://developers.google.com/maps/documentation/javascript/get-api-key
 3. Login to PAS (Cloud Foundry), subscribe MySQL and Redis.
 
 	cf login -a api.system.abc.com --skip-ssl-validation
+    
     cf create-service p.mysql db-small iot
+    
 	cf create-service p.redis cache-small redis1
     
    Push gh-controller:
