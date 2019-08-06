@@ -132,25 +132,33 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 
 		screen
 		image-recognition-vm/start-image-recognition.sh
+
+### ECS:
+1. Create a bucket: iotcamera01
+2. Update the Object Storage Endpoint, Access Key ID and Secret Access Key in:
+
+		CloudFoundry/greenhouse/app.py
+		DellEdgeGateway/greenhouse/AxisCamera.py
 		
-9. Setup [Isilon and HortonWorks](https://www.emc.com/collateral/TechnicalDocument/docu71396.pdf).
+### Isilon Hadoop:
+1. Setup [Isilon and HortonWorks](https://www.emc.com/collateral/TechnicalDocument/docu71396.pdf).
 Install Spark2, Hive, NiFi and Zeppelin.
 
-10. Create user in Isilon:
+2. Create user in Isilon:
 
 		isi auth groups create nifi --zone hdpzone --provider local
 		isi auth users create nifi --primary-group nifi \
 		--zone hdpzone --provider local \
 		--home-directory /ifs/hdp/hadoop/user/nifi
 
-11. Add user to Hadoop nodes. This is performed on the master node:
+3. Add user to Hadoop nodes. This is performed on the master node:
 
 		useradd -u 2003 nifi
 		sudo -u hdfs hdfs dfs -mkdir -p /user/nifi
 		sudo -u hdfs hdfs dfs -chown nifi:nifi /user/nifi
 		sudo -u hdfs hdfs dfs -chmod 755 /user/nifi
 
-12. Create a database in Hive to store historical data:
+4. Create a database in Hive to store historical data:
 
 		SSH to the master node
 		beeline
@@ -173,6 +181,6 @@ Install Spark2, Hive, NiFi and Zeppelin.
 		STORED AS ORC 
 		TBLPROPERTIES('transactional'='true');
 		
-13. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template. 
+5. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template. 
 Start the Greenhouse NiFi Flow.
-14. Create a Zeppelin notebook. Open Zeppelin and import Zeppelin/Smart Greenhouse.json note.
+6. Create a Zeppelin notebook. Open Zeppelin and import Zeppelin/Smart Greenhouse.json note.
