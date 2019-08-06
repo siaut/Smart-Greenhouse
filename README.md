@@ -1,8 +1,24 @@
 # Smart-Greenhouse
 
-This is a demo project to show how a traditional greenhouse can be transformed using IOT, Isilon Big Data Analytics and AI.
+This is a demo project to show how a traditional greenhouse can be transformed using IOT, Isilon Big Data Analytics and AI. This project is built with Raspberry Pi, Dell EdgeGateway 5000
 Here is a [demo video](https://youtu.be/SFN2EIOu6mc).
 ![Smart Greenhouse Architecture Diagram](/Smart-Greenhouse.png)
+
+## Hardware:
+
+	Dell Edge Gateway 5000
+	Raspberry PI 3 model B
+	16 GB micro SD card
+	Power Adapter for Pi
+	24 Sensor Module kit 
+	Raspberry PI case
+	Belle 5V 4-Channel Relay Board
+	White Box
+	Mini Garden
+	USB Fan
+	USB Male to Female Extension Cable
+	3 metres of cable for wiring
+	Soldering Iron kit
 
 ## Setup:
 Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognition VM.
