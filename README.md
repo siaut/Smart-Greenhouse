@@ -9,14 +9,14 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 
 	git clone https://github.com/siaut/Smart-Greenhouse.git 
 ### Raspberry Pi:
-1.Setup Raspberry Pi with Raspbian. 
+1. Setup Raspberry Pi with Raspbian. 
 
-2.Copy RaspberryPi/gh-sensors directory to /root/iot/gh-sensors.
+2. Copy RaspberryPi/gh-sensors directory to /root/iot/gh-sensors.
 
-3.Configure and run these 2 services: 
+3. Configure and run these 2 services: 
 
-	startsensors.sh
-	controller.sh
+		startsensors.sh
+		controller.sh
     
 ### Dell Edge Gateway 5000:
 1. Install Ubuntu desktop 16.04 in Edge Gateway
@@ -39,36 +39,36 @@ https://developers.google.com/maps/documentation/javascript/get-api-key
 
 3. Login to PAS (Cloud Foundry), subscribe MySQL and Redis.
 	
-	cf login -a api.system.abc.com --skip-ssl-validation
-        cf create-service p.mysql db-small iot
-    	cf create-service p.redis cache-small redis1
+		cf login -a api.system.abc.com --skip-ssl-validation
+		cf create-service p.mysql db-small iot
+ 		cf create-service p.redis cache-small redis1
     
    Push gh-controller:
    
- 	cd CloudFoundry/gh-controller
-    	cf push gh-controller
+   		cd CloudFoundry/gh-controller
+   		cf push gh-controller
    
    Push greenhouse:
    
-    	cd CloudFoundry/greenhouse
-    	cf push greenhouse
+   		cd CloudFoundry/greenhouse
+   		cf push greenhouse
     
    Bind the services:    
    
-	cf bind-service gh-controller iot
-	cf bind-service gh-controller redis1
-   	cf bind-service greenhouse iot
-	cf bind-service greenhouse  redis1
+		cf bind-service gh-controller iot
+		cf bind-service gh-controller redis1
+   		cf bind-service greenhouse iot
+		cf bind-service greenhouse  redis1
 
    Create environment variables:
    
- 	#cf set-env greenhouse weatherkey xxx
-	cf set-env greenhouse mapkey YYY
+ 		#cf set-env greenhouse weatherkey xxx
+		cf set-env greenhouse mapkey YYY
     
    Restage the applications:
    
-	cf restage gh-controller
-	cf restage greenhouse
+		cf restage gh-controller
+		cf restage greenhouse
 
 
 
