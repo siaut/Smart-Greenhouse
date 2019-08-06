@@ -24,6 +24,7 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 3. Copy DellEdgeGateway to /opt/greenhouse
 
 4. Configure and run these 3 services 
+
 	gwcontroller.service
 	readsensors.service
 	web-gwcontroller.service
