@@ -14,6 +14,7 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 2. Copy RaspberryPi/gh-sensors directory to /root/iot/gh-sensors.
 
 3. Configure and run these 2 services : 
+
 		cp startsensors.service controller.service /etc/systemd/system
 		systemctl enable startsensors
 		systemctl enable controller
@@ -138,6 +139,7 @@ Install Spark2, Hive, NiFi and Zeppelin.
 		SSH to the master node
 		beeline
 		!connect jdbc:hive2://masterdns.pgen6.local:2181,pnode2.pgen6.local:2181,pnode1.pgen6.local:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2
+		
 		create database smartgreenhouse;
 
 		use smartgreenhouse;
@@ -155,5 +157,6 @@ Install Spark2, Hive, NiFi and Zeppelin.
 		STORED AS ORC 
 		TBLPROPERTIES('transactional'='true');
 		
-13. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template. Start the Greenhouse NiFi Flow.
+13. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template. 
+Start the Greenhouse NiFi Flow.
 14. Create a Zeppelin notebook. Open Zeppelin and import Zeppelin/Smart Greenhouse.json note.
