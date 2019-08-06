@@ -11,11 +11,11 @@ width = 640
 height = 480
  
 
-ecs_access_key_id = 'user1'  
-ecs_secret_key = 'cfgIT4b11yiumMgny0ygGtMIjv7OvSVaYfcZaKU2'
+ecs_access_key_id = 'XXX'  
+ecs_secret_key = 'XXXX'
 
-aws_access_key_id = 'AKIAIBQRFECMKQKXSPFQ'  
-aws_secret_key = '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'
+aws_access_key_id = 'XXXX'  
+aws_secret_key = 'XXXXX'
 
 ECS_HOST='ecs-lb.sgcloud.com'
 ECS_PORT=9020
