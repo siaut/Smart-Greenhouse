@@ -1,2 +1,2 @@
-cd /opt/models/tutorials/image/imagenet
+cd /image-recognition-vm
 python tensorflow-server.py
