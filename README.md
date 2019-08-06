@@ -53,8 +53,7 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 		systemctl enable web-gwcontroller.service
 
 ### Image Recognition VM:
-1. Get a google map API key from:
-https://developers.google.com/maps/documentation/javascript/get-api-key
+1. Get a [Google Map API key](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 2. Install [PCF CLI client](https://docs.pivotal.io/pivotalcf/2-3/cf-cli/install-go-cli.html)
 
