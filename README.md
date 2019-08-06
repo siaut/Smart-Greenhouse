@@ -27,9 +27,9 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 
 4. Configure and run these 3 services:
 
-	gwcontroller.service
-	readsensors.service
-	web-gwcontroller.service
+		gwcontroller.service
+		readsensors.service
+		web-gwcontroller.service
 
 ### Image Recognition VM:
 1. Get a google map API key from:
