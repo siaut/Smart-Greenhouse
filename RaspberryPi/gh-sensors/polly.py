@@ -3,8 +3,8 @@ import subprocess
 import os
 import time
 
-aws_access_key_id = 'AKIAISQ3GX66CAWEC3VQ'
-aws_secret_access_key = '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'
+aws_access_key_id = 'XXX'
+aws_secret_access_key = 'YYY'
 region_name='ap-southeast-1'
 
 talk_to_me = "<speak>Please keep a distance from the plants.<break time=\"1s\"/></speak> "
