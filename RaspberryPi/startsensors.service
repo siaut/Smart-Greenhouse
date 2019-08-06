@@ -1,0 +1,8 @@
+[Unit]
+Description=Greenhouse Startsensors
+
+[Service]
+ExecStart=/root/iot/gh-sensors/startsensors.py
+
+[Install]
+WantedBy=multi-user.target
