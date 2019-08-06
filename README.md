@@ -69,6 +69,63 @@ https://developers.google.com/maps/documentation/javascript/get-api-key
    
 		cf restage gh-controller
 		cf restage greenhouse
+		
+4. Deploy [PivotalMySQLWeb](https://github.com/pivotal-cf/PivotalMySQLWeb)
+5. Login to PivotalMySQLWeb to create these tables:
+	
 
+		DROP TABLE IF EXISTS sensors;
+		create table sensors(
+		ctime DATETIME,
+		   temp float ,
+		   light int,
+		   moisture float,      
+		   distance float,
+		   led int,
+		   fan int,
+		   waterpump int,   
+		   PRIMARY KEY ( ctime )
+		);
 
+		DROP TABLE IF EXISTS alerts;
+		create table alerts(
+		ctime DATETIME,
+		   filename varchar(255) ,
+		   distance float,
+		   aws text,
+		   msvision text,   
+		   PRIMARY KEY ( ctime )
+		);
 
+6. Install [Tensorflow](https://www.tensorflow.org/install):
+
+		yum -y install epel-release
+		yum -y update
+		yum -y install gcc gcc-c++ gcc-gfortran openssl-devel libffi-devel python-pip python-devel atlas atlas-devel
+		pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.7.0-cp27-none-linux_x86_64.whl
+				
+7. Install screen:
+
+		yum -y install screen
+		
+8. Start screen and run the tensorflow image recognition application:
+
+		screen
+		image-recognition-vm/start-image-recognition.sh
+		
+9. Setup [Isilon and HortonWorks](https://www.emc.com/collateral/TechnicalDocument/docu71396.pdf).
+Install Spark2, Hive, NiFi and Zeppelin.
+
+10. Create user in Isilon:
+
+	isi auth groups create nifi --zone hdpzone --provider local
+	isi auth users create nifi --primary-group nifi \
+	--zone hdpzone --provider local \
+	--home-directory /ifs/hdp/hadoop/user/nifi
+
+11. Add user to Hadoop nodes. This is performed on the master node:
+
+	useradd -u 2003 nifi
+	sudo -u hdfs hdfs dfs -mkdir -p /user/nifi
+	sudo -u hdfs hdfs dfs -chown nifi:nifi /user/nifi
+	sudo -u hdfs hdfs dfs -chmod 755 /user/nifi
