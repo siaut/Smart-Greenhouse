@@ -13,10 +13,10 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 
 2. Copy RaspberryPi/gh-sensors directory to /root/iot/gh-sensors.
 
-3. Configure and run these 2 services: 
-
-		startsensors.sh
-		controller.sh
+3. Configure and run these 2 services : 
+		cp startsensors.service controller.service /etc/systemd/system
+		systemctl enable startsensors
+		systemctl enable controller
     
 ### Dell Edge Gateway 5000:
 1. Install Ubuntu desktop 16.04 in Edge Gateway
@@ -27,9 +27,12 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 
 4. Configure and run these 3 services:
 
-		gwcontroller.service
-		readsensors.service
-		web-gwcontroller.service
+		cd DellEdgeGateway
+		cp *.service /etc/systemd/system/
+		
+		systemctl enable gwcontroller.service
+		systemctl enable readsensors.service
+		systemctl enable web-gwcontroller.service
 
 ### Image Recognition VM:
 1. Get a google map API key from:
@@ -37,7 +40,7 @@ https://developers.google.com/maps/documentation/javascript/get-api-key
 
 2. Install [PCF CLI client](https://docs.pivotal.io/pivotalcf/2-3/cf-cli/install-go-cli.html)
 
-3. Login to PAS (Cloud Foundry), subscribe MySQL and Redis.
+3. Login to PAS (Cloud Foundry), subscribe MySQL and Redis services.
 	
 		cf login -a api.system.abc.com --skip-ssl-validation
 		cf create-service p.mysql db-small iot
@@ -53,7 +56,7 @@ https://developers.google.com/maps/documentation/javascript/get-api-key
    		cd CloudFoundry/greenhouse
    		cf push greenhouse
     
-   Bind the services:    
+   Bind the services to the applications:    
    
 		cf bind-service gh-controller iot
 		cf bind-service gh-controller redis1
@@ -152,5 +155,5 @@ Install Spark2, Hive, NiFi and Zeppelin.
 		STORED AS ORC 
 		TBLPROPERTIES('transactional'='true');
 		
-13. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template.
+13. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template. Start the Greenhouse NiFi Flow.
 14. Create a Zeppelin notebook. Open Zeppelin and import Zeppelin/Smart Greenhouse.json note.
