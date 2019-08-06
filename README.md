@@ -118,14 +118,39 @@ Install Spark2, Hive, NiFi and Zeppelin.
 
 10. Create user in Isilon:
 
-	isi auth groups create nifi --zone hdpzone --provider local
-	isi auth users create nifi --primary-group nifi \
-	--zone hdpzone --provider local \
-	--home-directory /ifs/hdp/hadoop/user/nifi
+		isi auth groups create nifi --zone hdpzone --provider local
+		isi auth users create nifi --primary-group nifi \
+		--zone hdpzone --provider local \
+		--home-directory /ifs/hdp/hadoop/user/nifi
 
 11. Add user to Hadoop nodes. This is performed on the master node:
 
-	useradd -u 2003 nifi
-	sudo -u hdfs hdfs dfs -mkdir -p /user/nifi
-	sudo -u hdfs hdfs dfs -chown nifi:nifi /user/nifi
-	sudo -u hdfs hdfs dfs -chmod 755 /user/nifi
+		useradd -u 2003 nifi
+		sudo -u hdfs hdfs dfs -mkdir -p /user/nifi
+		sudo -u hdfs hdfs dfs -chown nifi:nifi /user/nifi
+		sudo -u hdfs hdfs dfs -chmod 755 /user/nifi
+
+12. Create a database in Hive to store historical data:
+
+		SSH to the master node
+		beeline
+		!connect jdbc:hive2://masterdns.pgen6.local:2181,pnode2.pgen6.local:2181,pnode1.pgen6.local:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2
+		create database smartgreenhouse;
+
+		use smartgreenhouse;
+
+		CREATE TABLE greenhouse2
+		(
+		   currenttime TIMESTAMP,
+		   light INT,
+		   moisture DOUBLE,
+		   temperature DOUBLE,
+		   distance DOUBLE
+		)
+		CLUSTERED BY (currenttime)INTO 24 BUCKETS
+		ROW FORMAT DELIMITED
+		STORED AS ORC 
+		TBLPROPERTIES('transactional'='true');
+		
+13. Create a NiFi Flow.	Open NiFi and import NiFi/Greenhouse_v2.xml template.
+14. Create a Zeppelin notebook. Open Zeppelin and import Zeppelin/Smart Greenhouse.json note.
