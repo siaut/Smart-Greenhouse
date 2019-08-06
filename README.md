@@ -6,6 +6,7 @@ Here is a [demo video](https://youtu.be/SFN2EIOu6mc).
 
 ## Setup:
 Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognition VM.
+
 	git clone https://github.com/siaut/Smart-Greenhouse.git 
 ### Raspberry Pi:
 1.Setup Raspberry Pi with Raspbian. 
@@ -13,6 +14,7 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 2.Copy RaspberryPi/gh-sensors directory to /root/iot/gh-sensors.
 
 3.Configure and run these 2 services: 
+
 	startsensors.sh
 	controller.sh
     
