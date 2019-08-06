@@ -1,6 +1,6 @@
 # Smart-Greenhouse
 
-This is a demo project to show how a traditional greenhouse can be transformed using IOT, Big Data Analytics and AI. Raspberry Pi and Dell EdgeGateway 5000 are used at the edge to collect data and automate the LED light and fan. Pivotal Application Service is used to host the applications. Isilon Hadoop is used to store the historical data and Zeppelin is used for visualization. Elastic Cloud Storage (ECS) is used to store the snapshot taken by the security camera attached to the Edge Gateway. The snapshot will be sent to the Image Recognition VM to analyze. It will try to identify the object in the snapshot.
+This is a demo project to show how a traditional greenhouse can be transformed using IoT, Big Data Analytics and AI. Raspberry Pi and Dell EdgeGateway 5000 are used at the edge to collect data and automate the LED light and fan. Pivotal Application Service is used to host the applications. Isilon Hadoop is used to store the historical data and Zeppelin is used for visualization. Elastic Cloud Storage (ECS) is used to store the snapshot taken by the security camera attached to the Edge Gateway. The snapshot will be sent to the Image Recognition VM to analyze. It will try to identify the object in the snapshot.
 
 Here is a [demo video](https://youtu.be/SFN2EIOu6mc).
 ![Smart Greenhouse Architecture Diagram](/Smart-Greenhouse.png)
