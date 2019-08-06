@@ -39,7 +39,11 @@ Clone this repo to a Linux machine (Centos 7.4). This will be the Image Recognit
 ### Dell Edge Gateway 5000:
 1. Install Ubuntu desktop 16.04 in Edge Gateway
 
-2. Install MQTT([Mosquitto Broker](https://www.vultr.com/docs/how-to-install-mosquitto-mqtt-broker-server-on-ubuntu-16-04)):
+2. Install MQTT(Mosquitto Broker):
+
+		apt-get update
+		apt-get install mosquitto
+		apt-get install mosquitto-clients
 
 3. Copy DellEdgeGateway to /opt/greenhouse
 
